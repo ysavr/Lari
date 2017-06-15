@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#FFFFFF</color>
     <color name="colorsliding">#8C9EFF</color>
+    <color name="colorbackground">#FF4D68FC</color>
 </resources>
