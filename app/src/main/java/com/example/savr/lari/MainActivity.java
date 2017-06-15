@@ -10,6 +10,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.example.savr.lari.Tab.MyAdapter;
 import com.example.savr.lari.Tab.SlidingTabLayout;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private Drawer.Result navigationDrawerLeft;
     private AccountHeader.Result headerNavigationLeft; //untuk menambahkan akun header
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
