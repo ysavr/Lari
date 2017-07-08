@@ -1,13 +1,7 @@
-package com.example.savr.lari;
+package com.example.savr.lari.Login;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.Volley;
-
-import static android.net.wifi.WifiConfiguration.AuthAlgorithm.SHARED;
 
 /**
  * Created by SAVR on 27/06/2017.

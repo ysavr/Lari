@@ -1,6 +1,7 @@
- package com.example.savr.lari;
+ package com.example.savr.lari.Login;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.example.savr.lari.MainActivity;
+import com.example.savr.lari.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -63,12 +66,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                                                 obj.getString("username"),
                                                 obj.getString("email")
                                         );
-
-                                Toast.makeText(
-                                        getApplicationContext(),
-                                       "User Sukses Login",
-                                        Toast.LENGTH_LONG
-                                ).show();
+                                //ketika login sukses masuk ke mainActivity
+                                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                                finish();
                             }else{
                                 Toast.makeText(
                                         getApplicationContext(),
