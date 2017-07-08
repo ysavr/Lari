@@ -14,6 +14,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.example.savr.lari.MainActivity;
 import com.example.savr.lari.R;
 
 import org.json.JSONException;
@@ -49,6 +50,12 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
             }
         });
     */
+        if(SharedPreferenManager.getInstance(this).isLoggedIn()){
+            finish();
+            startActivity(new Intent(this, MainActivity.class));
+            return;
+        }
+
         editTextUsername = (EditText) findViewById(R.id.username);
         editTextEmail = (EditText) findViewById(R.id.email);
         editTextPassword = (EditText) findViewById(R.id.password);

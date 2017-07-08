@@ -34,6 +34,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        if(SharedPreferenManager.getInstance(this).isLoggedIn()){
+            finish();
+            startActivity(new Intent(this,MainActivity.class));
+            return;
+        }
+
         editTextUsername = (EditText) findViewById(R.id.usernameLogin);
         editTextPassword = (EditText) findViewById(R.id.passwordLogin);
         buttonLogIn = (Button) findViewById(R.id.btnLogin);

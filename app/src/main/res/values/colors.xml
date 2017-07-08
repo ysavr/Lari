@@ -2,7 +2,8 @@
 <resources>
     <color name="colorPrimary">#0D47A1</color>
     <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#FFFFFF</color>
-    <color name="colorsliding">#8C9EFF</color>
+    <color name="colorAccent">#687abc</color>
+    <color name="colorsliding">#5C6BC0</color>
     <color name="colorbackground">#FF4D68FC</color>
+    <color name="backgroundsliding">#ffff</color>
 </resources>

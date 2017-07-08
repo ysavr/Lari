@@ -18,10 +18,6 @@ import com.example.savr.lari.fragment.ActivityFragment;
 import com.example.savr.lari.fragment.HomeFragment;
 import com.example.savr.lari.fragment.LocationFragment;
 
-/**
- * Created by Ujang Wahyu on 18/08/2016.
- */
-
 public class MyAdapter extends FragmentPagerAdapter {
     private Context mContext;
     private String[] titles ={"A","B","C"};

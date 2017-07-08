@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.savr.lari.Login.Login;
 import com.example.savr.lari.Tab.MyAdapter;
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         slidingTabLayout = (SlidingTabLayout) findViewById(R.id.st1_tabs);
         slidingTabLayout.setDistributeEvenly(true);
-        slidingTabLayout.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+        slidingTabLayout.setBackgroundColor(getResources().getColor(R.color.backgroundsliding));
         slidingTabLayout.setSelectedIndicatorColors(getResources().getColor(R.color.colorsliding));
         slidingTabLayout.setCustomTabView(R.layout.tab_view,R.id.tv_tab);
         slidingTabLayout.setViewPager(viewPager);
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 .withSavedInstance(savedInstanceState)
                 .withHeaderBackground(R.color.colorPrimary)
                 .addProfiles(
-                        new ProfileDrawerItem().withName("Mlayu").withEmail("Mlayu@mail.com").withIcon(getResources().getDrawable(R.drawable.user))
+                        new ProfileDrawerItem().withName(SharedPreferenManager.getInstance(this).getUsername()).withEmail(SharedPreferenManager.getInstance(this).getUSerEmail()).withIcon(getResources().getDrawable(R.drawable.user))
                 )
                 .build();
         navigationDrawerLeft = new Drawer()
@@ -77,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         navigationDrawerLeft.addItem(new PrimaryDrawerItem().withName("Setting").withIcon(getResources().getDrawable(R.drawable.setting)));
     }
 
+    //===============Menu option=============================//
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -89,13 +91,27 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()){
+            case R.id.action_settings:
+                Toast.makeText(this, "Clicked Setting", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.menuLogout:
+                SharedPreferenManager.getInstance(this).logout();
+                finish();
+                startActivity(new Intent(this,Login.class));
+                break;
         }
+        return true;
+    }
+    boolean doubleBackPressed = false;
 
-        return super.onOptionsItemSelected(item);
+    @Override
+    public void onBackPressed() {
+        if (doubleBackPressed){
+            super.onBackPressed();
+            return;
+        }
+        this.doubleBackPressed = true;
+        Toast.makeText(this, "Tekan dua kali untuk keluar", Toast.LENGTH_SHORT).show();
     }
 }
