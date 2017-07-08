@@ -101,7 +101,7 @@
             android:textColor="#FFF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/rec_gradient"
+            android:background="@drawable/state_pressed_button"
             android:onClick="register"/>
         <Button
             android:id="@+id/btnSignin"
