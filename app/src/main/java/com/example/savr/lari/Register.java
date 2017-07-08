@@ -1,6 +1,7 @@
 package com.example.savr.lari;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,7 +24,7 @@ import java.util.Map;
 public class Register extends AppCompatActivity implements View.OnClickListener {
 
     private EditText editTextUsername,editTextEmail,editTextPassword;
-    private Button buttonRegister;
+    private Button buttonRegister,buttonSignIn;
     private ProgressDialog progressDialog;
 
     @Override
@@ -51,10 +52,12 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         editTextEmail = (EditText) findViewById(R.id.email);
         editTextPassword = (EditText) findViewById(R.id.password);
         buttonRegister = (Button) findViewById(R.id.btnRegister);
+        buttonSignIn = (Button) findViewById(R.id.btnSignin);
 
         progressDialog = new ProgressDialog(this);
 
         buttonRegister.setOnClickListener(this);
+        buttonSignIn.setOnClickListener(this);
     }
 
     private void registerUSer(){
@@ -104,5 +107,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     public void onClick(View v) {
         if (v == buttonRegister)
         registerUSer();
+        if (v == buttonSignIn)
+            startActivity(new Intent(this,Login.class));
     }
 }
